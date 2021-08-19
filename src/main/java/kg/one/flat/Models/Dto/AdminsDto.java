@@ -1,12 +1,9 @@
-package kg.one.flat.Models;
+package kg.one.flat.Models.Dto;
 
 import lombok.Data;
 
-import javax.persistence.Entity;
-
-@Entity
 @Data
-public class Admins extends BaseEntity{
+public class AdminsDto extends BaseDto{
     private String name;
     private String username;
     private String password;

@@ -1,6 +1,5 @@
 package kg.one.flat.Models.Dto;
 
-import kg.one.flat.Models.Brokers;
 import kg.one.flat.Models.Cities;
 import kg.one.flat.Models.Districts;
 import kg.one.flat.Models.Enums.FlatTypes;
@@ -13,8 +12,8 @@ public class FlatsDto extends BaseDto{
     private int floor;
     private double area;
     private FlatTypes flatTypes;
-    private Districts districts;
-    private Cities cities;
+    private DistrictsDto districts;
+    private CitiesDto cities;
     private LocalDateTime addDate;
     private LocalDateTime editDate;
     private String description;
@@ -25,5 +24,5 @@ public class FlatsDto extends BaseDto{
     private Boolean image;
     private Boolean video;
     private Boolean broker;
-    private Brokers brokers;
+    private UsersDto brokers;
 }

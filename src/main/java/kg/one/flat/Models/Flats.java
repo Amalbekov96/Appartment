@@ -1,6 +1,7 @@
 package kg.one.flat.Models;
 
 import kg.one.flat.Models.Enums.FlatTypes;
+import kg.one.flat.Models.Enums.RentType;
 import lombok.Data;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
@@ -33,5 +34,7 @@ public class Flats extends BaseEntity {
     private Boolean video;
     private Boolean broker;
     @ManyToOne
-    private Brokers brokers;
+    private Users brokers;
+    private int appartmentFloor;
+    private RentType type;
 }

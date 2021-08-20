@@ -1,30 +1,34 @@
 package kg.one.flat.Models.Mapper.Impl;
 
 import kg.one.flat.Models.Dto.UsersDto;
+import kg.one.flat.Models.Dto.VideosDto;
 import kg.one.flat.Models.Mapper.UsersMapper;
+import kg.one.flat.Models.Mapper.VideosMapper;
 import kg.one.flat.Models.Users;
+import kg.one.flat.Models.Videos;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 @Service
-public class VideosMapperImpl implements UsersMapper {
+public class VideosMapperImpl implements VideosMapper {
+
     @Override
-    public Users toEntity(UsersDto usersDto) {
-        return UsersMapper.INSTANCE.toEntity(usersDto);
+    public Videos toEntity(VideosDto videosDto) {
+        return VideosMapper.INSTANCE.toEntity(videosDto);
     }
 
     @Override
-    public UsersDto toDto(Users users) {
-        return UsersMapper.INSTANCE.toDto(users);
+    public VideosDto toDto(Videos videos) {
+        return VideosMapper.INSTANCE.toDto(videos);
     }
 
     @Override
-    public List<Users> toListEntity(List<UsersDto> d) {
-        return UsersMapper.INSTANCE.toListEntity(d);
+    public List<Videos> toListEntity(List<VideosDto> d) {
+        return VideosMapper.INSTANCE.toListEntity(d);
     }
 
     @Override
-    public List<UsersDto> toListDto(List<Users> e) {
-        return UsersMapper.INSTANCE.toListDto(e);
+    public List<VideosDto> toListDto(List<Videos> e) {
+        return VideosMapper.INSTANCE.toListDto(e);
     }
 }

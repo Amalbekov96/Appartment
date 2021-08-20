@@ -5,11 +5,13 @@ import kg.one.flat.Models.Users;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
+
 @Data
 public class CodesDto extends BaseDto{
     private String code;
-    private LocalDate startDate;
-    private LocalDate endDate;
+    private LocalDateTime startDate;
+    private LocalDateTime endDate;
     private CodeStatus status;
-    private Users users;
+    private UsersDto users;
 }

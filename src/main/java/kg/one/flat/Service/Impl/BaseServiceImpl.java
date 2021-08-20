@@ -6,17 +6,25 @@ import kg.one.flat.Models.Dto.BaseDto;
 import kg.one.flat.Models.Mapper.BaseMapper;
 import kg.one.flat.Repository.BaseRepository;
 import kg.one.flat.Service.BaseService;
+import org.mapstruct.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.persistence.MappedSuperclass;
 import java.util.List;
 
-public class BaseServiceImpl< E extends BaseEntity, D extends BaseDto, M extends BaseMapper<E, D>, R extends BaseRepository<E>> implements BaseService<D> {
+@Service
+@MappedSuperclass
+public abstract class BaseServiceImpl< E extends BaseEntity, D extends BaseDto, M extends BaseMapper<E, D>, R extends BaseRepository<E>> implements BaseService<D> {
+
+    private R repo;
+    private M mapper;
 
     @Autowired
-    private R repo;
-    @Autowired
-    private M mapper;
+    public BaseServiceImpl(R repo, M mapper) {
+        this.repo = repo;
+        this.mapper = mapper;
+    }
 
     @Override
     public D findById(Long id) {

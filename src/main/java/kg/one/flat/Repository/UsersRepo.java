@@ -5,4 +5,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UsersRepo extends BaseRepository<Users>{
+    Users findByPhone(String phone);
 }

@@ -1,7 +1,9 @@
 package kg.one.flat.Models.Dto;
 
-import javax.persistence.MappedSuperclass;
+import lombok.Data;
 
+import javax.persistence.MappedSuperclass;
+@Data
 @MappedSuperclass
 public abstract class BaseDto {
     private Long id;

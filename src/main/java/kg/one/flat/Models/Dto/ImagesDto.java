@@ -6,5 +6,5 @@ import lombok.Data;
 @Data
 public class ImagesDto extends BaseDto{
     private String url;
-    private Flats flats;
+    private FlatsDto flats;
 }

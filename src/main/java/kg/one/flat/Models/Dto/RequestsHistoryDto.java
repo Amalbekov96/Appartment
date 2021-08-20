@@ -9,5 +9,5 @@ import java.time.LocalDateTime;
 public class RequestsHistoryDto extends BaseDto{
     private RequestStatus status;
     private LocalDateTime addDate;
-    private Users users;
+    private UsersDto users;
 }

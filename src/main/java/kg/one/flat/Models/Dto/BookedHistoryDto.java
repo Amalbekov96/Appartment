@@ -10,9 +10,9 @@ import java.time.LocalDateTime;
 @Data
 public class BookedHistoryDto extends BaseDto{
 
-    private Flats flats;
-    private Users users;
-    private Admins admins;
+    private FlatsDto flats;
+    private UsersDto users;
+    private AdminsDto admins;
     private BookedHisotoryStatus status;
     private LocalDateTime addTime;
     private LocalDateTime editTime;

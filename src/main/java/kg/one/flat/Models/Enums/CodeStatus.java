@@ -2,9 +2,11 @@ package kg.one.flat.Models.Enums;
 
 public enum CodeStatus {
 
-    USED (0),
-    NOT_USED (1),
-    NEW (2);
+    NEW (0),
+    CANCELLED (1),
+    APPROVED (2),
+    FAILED (3),
+    NOT_USED (4);
 
     private int code;
 

@@ -6,5 +6,5 @@ import lombok.Data;
 @Data
 public class DistrictsDto extends BaseDto{
     private String name;
-    private Cities cities;
+    private CitiesDto cities;
 }

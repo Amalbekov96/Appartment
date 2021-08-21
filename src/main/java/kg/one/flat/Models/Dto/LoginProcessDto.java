@@ -1,13 +1,15 @@
 package kg.one.flat.Models.Dto;
 
-import kg.one.flat.Models.Users;
 import lombok.Data;
 
 import java.time.LocalDateTime;
+
 @Data
-public class BlackListDto extends BaseDto{
+public class LoginProcessDto extends BaseDto{
+
     private UsersDto user;
+    private int count;
+    private String reason;
     private LocalDateTime startTime;
     private LocalDateTime endTime;
-    private String reason;
 }

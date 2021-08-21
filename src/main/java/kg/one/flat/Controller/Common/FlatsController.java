@@ -17,11 +17,4 @@ public class FlatsController extends BaseController<Flats, FlatsDto, FlatsServic
     protected FlatsController(FlatsServiceImpl service) {
         super(service);
     }
-    @Autowired
-    private FlatsServiceImpl flatsService;
-
-    @GetMapping("/loginWithCode")
-    ResponseEntity<?> getAllPostedFlats(@RequestParam Integer code){
-        return ResponseEntity.ok(flatsService.findAllPostedFlats(code));
-    }
 }

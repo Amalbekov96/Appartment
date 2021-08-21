@@ -3,9 +3,10 @@ package kg.one.flat.Models.Mapper.Impl;
 import kg.one.flat.Models.BlackList;
 import kg.one.flat.Models.Dto.BlackListDto;
 import kg.one.flat.Models.Mapper.BlackListMapper;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class BlackListMapperImpl implements BlackListMapper {
     @Override
     public BlackList toEntity(BlackListDto blackListDto) {

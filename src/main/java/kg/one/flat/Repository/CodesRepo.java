@@ -12,5 +12,5 @@ public interface CodesRepo extends BaseRepository<Codes>{
     Codes findByUsersAndEndDateIsAfter(Users user, LocalDateTime currentDate);
     List<Codes> findAllByUsersAndEndDateIsBefore(Users user, LocalDateTime currentDate);
 
-    Codes findByCode(Integer code);
+    Codes findByCode(String code);
 }

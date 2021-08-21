@@ -19,7 +19,7 @@ public class CodesServiceImpl extends BaseServiceImpl<Codes, CodesDto, CodesMapp
     @Autowired
     private CodesMapper codesMapper;
 
-    public CodesDto findByCode(Integer code) {
+    public CodesDto findByCode(String code) {
         return codesMapper.toDto(codesRepo.findByCode(code));
     }
 }

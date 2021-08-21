@@ -1,17 +1,20 @@
 package kg.one.flat.Models;
 
+import kg.one.flat.Models.Dto.UsersDto;
 import lombok.Data;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
 import java.time.LocalDateTime;
-@Entity
+
 @Data
-public class BlackList extends BaseEntity{
+@Entity
+public class LoginProcess extends BaseEntity{
     @ManyToOne
     private Users user;
-    private LocalDateTime startTime;
-    private LocalDateTime endTime;
     private int count;
     private String reason;
+    private LocalDateTime startTime;
+    private LocalDateTime endTime;
 }

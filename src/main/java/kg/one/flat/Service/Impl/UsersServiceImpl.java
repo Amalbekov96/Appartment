@@ -31,6 +31,8 @@ public class UsersServiceImpl extends BaseServiceImpl<Users, UsersDto, UsersMapp
     private CodesMapper codesMapper;
     @Autowired
     private CodesRepo codesRepo;
+    @Autowired
+    BlackListServiceImpl blackListService;
 
     private static final Logger LOGGER = Logger.getLogger(Logger.GLOBAL_LOGGER_NAME);
 
@@ -100,9 +102,5 @@ public class UsersServiceImpl extends BaseServiceImpl<Users, UsersDto, UsersMapp
             }
 
 
-    }
-
-    public LocalDateTime checkIfUserBlocked(UsersDto usersDto) {
-        return null;
     }
 }

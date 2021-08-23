@@ -8,6 +8,7 @@ import kg.one.flat.Repository.BaseRepository;
 import kg.one.flat.Service.BaseService;
 import org.mapstruct.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.MappedSuperclass;
@@ -37,8 +38,8 @@ public abstract class BaseServiceImpl< E extends BaseEntity, D extends BaseDto, 
     }
 
     @Override
-    public D create(D d) {
-        return mapper.toDto(repo.save(mapper.toEntity(d)));
+    public ResponseEntity<?> create(D d) {
+        return ResponseEntity.ok(mapper.toDto(repo.save(mapper.toEntity(d))));
     }
 
     @Override

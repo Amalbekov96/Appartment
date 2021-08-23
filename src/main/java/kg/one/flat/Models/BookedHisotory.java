@@ -25,5 +25,7 @@ public class BookedHisotory extends BaseEntity{
     private LocalDateTime addTime;
     @UpdateTimestamp
     private LocalDateTime editTime;
+    private LocalDateTime startDate;
+    private LocalDateTime endDate;
     private double totalPrice;
 }

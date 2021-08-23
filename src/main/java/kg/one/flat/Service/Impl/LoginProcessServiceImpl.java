@@ -4,7 +4,10 @@ import kg.one.flat.Exceptions.IncorrectCodeException;
 import kg.one.flat.Exceptions.UserBlockedException;
 import kg.one.flat.Models.Codes;
 import kg.one.flat.Models.Dto.*;
+import kg.one.flat.Models.Enums.CodeStatus;
+import kg.one.flat.Models.Enums.RequestStatus;
 import kg.one.flat.Models.LoginProcess;
+import kg.one.flat.Models.Mapper.CodesMapper;
 import kg.one.flat.Models.Mapper.LoginProcessMapper;
 import kg.one.flat.Models.Mapper.UsersMapper;
 import kg.one.flat.Models.Users;
@@ -39,32 +42,53 @@ public class LoginProcessServiceImpl extends BaseServiceImpl<LoginProcess, Login
     private UsersMapper usersMapper;
     @Autowired
     private LoginProcessMapper loginProcessMapper;
+    @Autowired
+    private RequestsHistoryServiceImpl requestsHistoryService;
+    @Autowired
+    private CodesMapper codesMapper;
 
     public ResponseEntity<?> findAllPostedFlats(Codes code) throws UserBlockedException {
 
 
-
         LocalDateTime leftTime = blackListService.findBlockedByUsers(usersMapper.toDto(code.getUsers()));
 
+        RequestsHistoryDto requestsHistoryDto = new RequestsHistoryDto();
+        requestsHistoryDto.setAddDate(LocalDateTime.now());
+        requestsHistoryDto.setCodesDto(codesMapper.toDto(code));
+
         if(leftTime != null) {
+                requestsHistoryDto.setStatus(RequestStatus.USER_BLOCKED);
+                requestsHistoryService.create(requestsHistoryDto);
                 throw new UserBlockedException("Sorry, you are blocked! You will be unblocked after " + leftTime.getHour() + " hours and " + leftTime.getMinute() + " minutes!");
         } else {
+
                 CodesDto codesDto = new CodesDto();
 
                 codesDto = codesService.findByCode(code.getCode());
             if(codesDto != null){
+                requestsHistoryDto.setStatus(RequestStatus.USER_ACCESSED);
+                codesDto.setStatus(CodeStatus.APPROVED);
+                codesService.create(codesDto);
+                requestsHistoryService.create(requestsHistoryDto);
                 return ResponseEntity.ok(flatsService.findAll());
             } else {
 
                     LoginProcessDto loginProcessDto = loginProcessMapper.toDto(loginProcessRepo.findByUser(code.getUsers()));
                 if(loginProcessDto != null){
                     if (loginProcessDto.getCount() == 1) {
+                        requestsHistoryDto.setStatus(RequestStatus.USER_ENTERED_WRONG_PASS);
+                        requestsHistoryService.create(requestsHistoryDto);
+
                         loginProcessDto.setCount(2);
                         loginProcessDto.setStartTime(LocalDateTime.now());
                         loginProcessDto.setEndTime(LocalDateTime.now().plusMinutes(1));
                         loginProcessRepo.save(loginProcessMapper.toEntity(loginProcessDto));
                         throw new IncorrectCodeException("Incorrect code " + code.getCode() + " You have 1 more try!");
                     } else {
+
+                        requestsHistoryDto.setStatus(RequestStatus.USER_PUT_BLACK_LIST);
+                        requestsHistoryService.create(requestsHistoryDto);
+
                         BlackListDto newBlackListUser = new BlackListDto();
                         newBlackListUser.setUser(usersMapper.toDto(code.getUsers()));
                         newBlackListUser.setReason(loginProcessDto.getReason());
@@ -76,6 +100,9 @@ public class LoginProcessServiceImpl extends BaseServiceImpl<LoginProcess, Login
                     }
 
                 } else {
+
+                    requestsHistoryDto.setStatus(RequestStatus.USER_ENTERED_WRONG_PASS);
+                    requestsHistoryService.create(requestsHistoryDto);
 
                     LoginProcessDto newLoginProcess = new LoginProcessDto();
                     newLoginProcess.setUser(usersMapper.toDto(code.getUsers()));

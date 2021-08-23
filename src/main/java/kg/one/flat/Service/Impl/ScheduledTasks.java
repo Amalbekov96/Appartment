@@ -10,7 +10,7 @@ public class ScheduledTasks {
     @Autowired
     private LoginProcessServiceImpl loginProcessService;
 
-    @Scheduled(cron = "0 * * * * *")
+    @Scheduled(cron = "0/30 * * * * *")
     public void CleanUpTheLoginProcess(){
         loginProcessService.scheduleFixedDelayTask();
     }

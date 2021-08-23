@@ -4,12 +4,13 @@ import kg.one.flat.Models.Flats;
 import lombok.Data;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Data
 public class PricesDto extends BaseDto{
 
     private FlatsDto flat;
-    private LocalDate startDate;
-    private LocalDate endDate;
+    private LocalDateTime startDate;
+    private LocalDateTime endDate;
     private Double price;
 }

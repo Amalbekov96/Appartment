@@ -16,5 +16,7 @@ public class BookedHistoryDto extends BaseDto{
     private BookedHisotoryStatus status;
     private LocalDateTime addTime;
     private LocalDateTime editTime;
+    private LocalDateTime startDate;
+    private LocalDateTime endDate;
     private double totalPrice;
 }

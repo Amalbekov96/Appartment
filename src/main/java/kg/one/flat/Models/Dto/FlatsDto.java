@@ -3,6 +3,7 @@ package kg.one.flat.Models.Dto;
 import kg.one.flat.Models.Cities;
 import kg.one.flat.Models.Districts;
 import kg.one.flat.Models.Enums.FlatTypes;
+import kg.one.flat.Models.Enums.RentType;
 import lombok.Data;
 
 import java.time.LocalDateTime;
@@ -25,4 +26,6 @@ public class FlatsDto extends BaseDto{
     private Boolean video;
     private Boolean broker;
     private UsersDto brokers;
+    private int appartmentFloor;
+    private RentType type;
 }

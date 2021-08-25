@@ -5,4 +5,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CitiesRepo extends BaseRepository<Cities>{
+
+    Cities findByName(String name);
 }

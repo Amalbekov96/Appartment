@@ -20,11 +20,4 @@ public class PricesController extends BaseController<Prices, PricesDto, PricesSe
         super(service);
     }
 
-    private PricesServiceImpl pricesService;
-
-    @GetMapping("/AllMastersByDate")
-    public ResponseEntity<?> findAllByBranchIdAndWorkDate(@RequestParam Long BranchId, @RequestParam @DateTimeFormat(pattern = "dd-MM-yyyy") LocalDate date){
-        return ResponseEntity.ok(pricesService.findAll());
-    }
-
 }

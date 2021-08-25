@@ -14,4 +14,7 @@ public enum FlatTypes {
         this.seria = seria;
     }
 
+    public int getSeria() {
+        return seria;
+    }
 }

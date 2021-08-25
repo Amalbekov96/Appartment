@@ -9,4 +9,8 @@ public enum RentType {
     RentType(int type) {
         this.type = type;
     }
+
+    public int getType() {
+        return type;
+    }
 }

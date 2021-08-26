@@ -64,7 +64,7 @@ public class UsersServiceImpl extends BaseServiceImpl<Users, UsersDto, UsersMapp
                 LocalDateTime time = LocalDateTime.now();
                 newCodeDto.setStartDate(time);
                 newCodeDto.setEndDate(time.plusMinutes(3));
-
+                System.out.println(newCodeDto.toString());
                 LOGGER.log(Level.INFO, "New user was created and new code was generated!");
 
                 return codesMapper.toDto(codesRepo.save(codesMapper.toEntity(newCodeDto)));

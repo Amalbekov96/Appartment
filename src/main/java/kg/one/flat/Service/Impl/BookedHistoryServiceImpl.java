@@ -62,7 +62,7 @@ public class BookedHistoryServiceImpl extends BaseServiceImpl<BookedHisotory, Bo
                 if (bookedHistoryDto.getFlats().getType().equals(RentType.DAILY)) {
                     int days = (int) ChronoUnit.DAYS.between(bookedHistoryDto.getStartDate(), bookedHistoryDto.getEndDate());
                     PricesDto price = pricesService.findByFlat(bookedHistoryDto.getFlats());
-
+                    System.out.println(days);
                     double totalPrice = days * price.getPrice();
                     bookedHistoryDto.setTotalPrice(totalPrice);
 
@@ -71,7 +71,7 @@ public class BookedHistoryServiceImpl extends BaseServiceImpl<BookedHisotory, Bo
                 } else {
                     int months = (int) ChronoUnit.MONTHS.between(bookedHistoryDto.getStartDate(), bookedHistoryDto.getEndDate());
                     PricesDto price = pricesService.findByFlat(bookedHistoryDto.getFlats());
-
+                    System.out.println(months);
                     double totalPrice = months * price.getPrice();
                     bookedHistoryDto.setTotalPrice(totalPrice);
 
@@ -81,7 +81,7 @@ public class BookedHistoryServiceImpl extends BaseServiceImpl<BookedHisotory, Bo
                 if (bookedHistoryDto.getFlats().getType().equals(RentType.DAILY)) {
                     int days = (int) ChronoUnit.DAYS.between(bookedHistoryDto.getStartDate(), bookedHistoryDto.getEndDate());
                     PricesDto price = pricesService.findByFlat(bookedHistoryDto.getFlats());
-
+                    System.out.println(days);
                     double totalPrice = days * price.getPrice();
                     bookedHistoryDto.setTotalPrice(totalPrice);
 
@@ -90,7 +90,7 @@ public class BookedHistoryServiceImpl extends BaseServiceImpl<BookedHisotory, Bo
                 } else {
                     int months = (int) ChronoUnit.MONTHS.between(bookedHistoryDto.getStartDate(), bookedHistoryDto.getEndDate());
                     PricesDto price = pricesService.findByFlat(bookedHistoryDto.getFlats());
-
+                    System.out.println(months);
                     double totalPrice = months * price.getPrice();
                     bookedHistoryDto.setTotalPrice(totalPrice);
 
@@ -111,7 +111,7 @@ public class BookedHistoryServiceImpl extends BaseServiceImpl<BookedHisotory, Bo
                 if (bookedHistoryDto.getFlats().getType().equals(RentType.DAILY)) {
                     int days = (int) ChronoUnit.DAYS.between(bookedHistoryDto.getStartDate(), bookedHistoryDto.getEndDate());
                     PricesDto price = pricesService.findByFlat(bookedHistoryDto.getFlats());
-
+                    System.out.println(days);
                     double totalPrice = days * price.getPrice();
                     bookedHistoryDto.setTotalPrice(totalPrice);
 
@@ -120,7 +120,7 @@ public class BookedHistoryServiceImpl extends BaseServiceImpl<BookedHisotory, Bo
                 } else {
                     int months = (int) ChronoUnit.MONTHS.between(bookedHistoryDto.getStartDate(), bookedHistoryDto.getEndDate());
                     PricesDto price = pricesService.findByFlat(bookedHistoryDto.getFlats());
-
+                    System.out.println(months);
                     double totalPrice = months * price.getPrice();
                     bookedHistoryDto.setTotalPrice(totalPrice);
 
@@ -131,7 +131,7 @@ public class BookedHistoryServiceImpl extends BaseServiceImpl<BookedHisotory, Bo
                 if (bookedHistoryDto.getFlats().getType().equals(RentType.DAILY)) {
                     int days = (int) ChronoUnit.DAYS.between(bookedHistoryDto.getStartDate(), bookedHistoryDto.getEndDate());
                     PricesDto price = pricesService.findByFlat(bookedHistoryDto.getFlats());
-
+                    System.out.println(days);
                     double totalPrice = days * price.getPrice();
                     bookedHistoryDto.setTotalPrice(totalPrice);
 
@@ -140,7 +140,7 @@ public class BookedHistoryServiceImpl extends BaseServiceImpl<BookedHisotory, Bo
                 } else {
                     int months = (int) ChronoUnit.MONTHS.between(bookedHistoryDto.getStartDate(), bookedHistoryDto.getEndDate());
                     PricesDto price = pricesService.findByFlat(bookedHistoryDto.getFlats());
-
+                    System.out.println(months);
                     double totalPrice = months * price.getPrice();
                     bookedHistoryDto.setTotalPrice(totalPrice);
 

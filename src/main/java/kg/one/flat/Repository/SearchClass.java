@@ -1,6 +1,8 @@
 package kg.one.flat.Repository;
 
+import kg.one.flat.Models.Dto.FlatsDto;
 import kg.one.flat.Models.Flats;
+import kg.one.flat.Models.Mapper.FlatsMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -13,7 +15,8 @@ public class SearchClass {
 
     @Autowired
     private JdbcTemplate jdbcTemplate;
-
+    @Autowired
+    private FlatsMapper flatsMapper;
 
 
     public List<Flats> findAll(String sql) {

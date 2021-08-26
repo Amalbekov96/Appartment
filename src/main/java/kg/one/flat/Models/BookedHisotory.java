@@ -18,8 +18,6 @@ public class BookedHisotory extends BaseEntity{
     private Flats flats;
     @ManyToOne
     private Users users;
-    @ManyToOne
-    private Admins admins;
     private BookedHisotoryStatus status;
     @CreationTimestamp
     private LocalDateTime addTime;

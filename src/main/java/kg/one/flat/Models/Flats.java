@@ -33,6 +33,7 @@ public class Flats extends BaseEntity {
     private Boolean image;
     private Boolean video;
     private Boolean broker;
+    private Boolean balkon;
     @ManyToOne
     private Users brokers;
     private int appartmentFloor;

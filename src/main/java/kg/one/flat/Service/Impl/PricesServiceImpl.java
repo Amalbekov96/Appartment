@@ -29,9 +29,10 @@ public class PricesServiceImpl extends BaseServiceImpl<Prices, PricesDto, Prices
     @Override
     public ResponseEntity<?> create(PricesDto pricesDto) {
 
-        PricesDto oldPrice = pricesMapper.toDto(pricesRepo.findByEndDateIsNull());
+        PricesDto oldPrice = findByFlat(pricesDto.getFlat());
 
         if(oldPrice == null){
+            pricesDto.setEndDate(null);
             return super.create(pricesDto);
         } else {
             oldPrice.setEndDate(LocalDateTime.now());

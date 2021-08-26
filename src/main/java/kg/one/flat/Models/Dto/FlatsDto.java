@@ -28,4 +28,5 @@ public class FlatsDto extends BaseDto{
     private UsersDto brokers;
     private int appartmentFloor;
     private RentType type;
+    private Boolean balkon;
 }

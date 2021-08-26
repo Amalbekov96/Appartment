@@ -1,6 +1,7 @@
 package kg.one.flat.Models.Enums;
 
 public enum FlatTypes {
+    NONE (-1),
  STO4 (0),
  STO5 (1),
  STO6 (2),

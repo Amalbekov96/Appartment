@@ -81,7 +81,7 @@ public class LoginProcessServiceImpl extends BaseServiceImpl<LoginProcess, Login
 
                         loginProcessDto.setCount(2);
                         loginProcessDto.setStartTime(LocalDateTime.now());
-                        loginProcessDto.setEndTime(LocalDateTime.now().plusMinutes(1));
+                        loginProcessDto.setEndTime(LocalDateTime.now().plusSeconds(30));
                         loginProcessRepo.save(loginProcessMapper.toEntity(loginProcessDto));
                         throw new IncorrectCodeException("Incorrect code " + code.getCode() + " You have 1 more try!");
                     } else {
@@ -109,7 +109,7 @@ public class LoginProcessServiceImpl extends BaseServiceImpl<LoginProcess, Login
                     newLoginProcess.setCount(1);
                     newLoginProcess.setReason("Incorrect code");
                     newLoginProcess.setStartTime(LocalDateTime.now());
-                    newLoginProcess.setEndTime(LocalDateTime.now().plusMinutes(1));
+                    newLoginProcess.setEndTime(LocalDateTime.now().plusSeconds(30));
                     loginProcessRepo.save(loginProcessMapper.toEntity(newLoginProcess));
                     throw new IncorrectCodeException("Incorrect code " + code.getCode() + " You have 2 more tries!");
                 }
@@ -120,6 +120,6 @@ public class LoginProcessServiceImpl extends BaseServiceImpl<LoginProcess, Login
 
     @Transactional
     public void scheduleFixedDelayTask() {
-        loginProcessRepo.deleteAllByEndTimeLessThan(LocalDateTime.now().plusSeconds(3));
+        loginProcessRepo.deleteAllByEndTimeLessThan(LocalDateTime.now());
     }
 }

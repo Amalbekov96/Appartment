@@ -1,6 +1,7 @@
 package kg.one.flat.Models.Enums;
 
 public enum RentType {
+    NONE (-1),
     DAILY (0),
     MOUNTHLY (1);
 
